@@ -36,3 +36,8 @@ RUN curl -L -o /var/tmp/clang.tar.gz https://android.googlesource.com/platform/p
   tar -xvpf /var/tmp/clang.tar.gz -C /opt && \
   ln -sf /opt/clang-${CLANG_VERSION} /opt/clang && \
   rm -f /var/tmp/clang.tar.gz
+
+RUN mkdir /opt/unpackbootimg && \
+  git clone https://github.com/osm0sis/mkbootimg.git /opt/unpackbootimg && \
+  cd /opt/unpackbootimg && \
+  make

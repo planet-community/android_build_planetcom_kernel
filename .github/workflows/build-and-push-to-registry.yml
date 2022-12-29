@@ -1,0 +1,35 @@
+name: Containers CI builder
+on:
+  push:
+  workflow_dispatch:
+
+# Ensures that only one deploy task per branch/environment will run at a time.
+concurrency:
+  group: gh-ref-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-images:
+    name: Build and push kernel container image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+
+      - name: Build images
+        id: build
+        uses: redhat-actions/buildah-build@v2
+        with:
+          image: ${{ github.repository }}
+          context: .
+          tags: latest
+          containerfiles: Dockerfile
+
+      - name: Push container
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ steps.build.outputs.image }}
+          tags: ${{ steps.build.outputs.tags }}
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}

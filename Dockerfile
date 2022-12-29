@@ -37,3 +37,5 @@ RUN curl -L -o /var/tmp/clang.tar.gz https://android.googlesource.com/platform/p
   tar -xvpf /var/tmp/clang.tar.gz -C /opt && \
   ln -sf /opt/clang-${CLANG_VERSION} /opt/clang && \
   rm -f /var/tmp/clang.tar.gz
+
+COPY common /opt/common

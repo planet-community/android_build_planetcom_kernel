@@ -2,8 +2,8 @@
 
 # fetch kernel sources
 git clone \
-  -b ${1:-stock} \
-  https://github.com/cawilliamson/android_kernel_planetcomputing_astro.git \
+  -b ${1:-stock-android} \
+  https://github.com/PCLineageOS-Ports/android_kernel_planet_mt6873.git \
   /usr/src/kernel
 
 # git reset to specific git commit

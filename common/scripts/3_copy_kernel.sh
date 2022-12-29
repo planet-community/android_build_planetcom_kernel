@@ -2,7 +2,7 @@
 
 # unpack boot.img
 mkdir -p /var/tmp/bootimg
-/usr/bin/unpack_bootimg --boot_img /common/files/boot.img --out /var/tmp/bootimg
+/usr/bin/unpack_bootimg --boot_img /opt/common/files/boot.img --out /var/tmp/bootimg
 
 # overwrite kernel
 cp -v \

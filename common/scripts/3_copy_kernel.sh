@@ -2,7 +2,7 @@
 
 # unpack boot.img
 mkdir -p /var/tmp/bootimg
-/usr/bin/unpack_bootimg --boot_img /opt/common/files/boot.img --out /var/tmp/bootimg
+/opt/unpackbootimg/unpackbootimg -i /common/files/boot.img -o /var/tmp/bootimg
 
 # overwrite kernel
 cp -v \
@@ -10,7 +10,7 @@ cp -v \
   /var/tmp/bootimg/boot.img-kernel
 
 # repack boot.img
-/usr/bin/mkbootimg \
+/opt/unpackbootimg/mkbootimg \
   --base "$(cat /var/tmp/bootimg/boot.img-base)" \
   --board "$(cat /var/tmp/bootimg/boot.img-board)" \
   --cmdline "$(cat /var/tmp/bootimg/boot.img-cmdline)" \

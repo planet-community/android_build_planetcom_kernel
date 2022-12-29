@@ -40,4 +40,6 @@ RUN curl -L -o /var/tmp/clang.tar.gz https://android.googlesource.com/platform/p
 RUN mkdir /opt/unpackbootimg && \
   git clone https://github.com/osm0sis/mkbootimg.git /opt/unpackbootimg && \
   cd /opt/unpackbootimg && \
-  make
+  git checkout 2375c167cbcb10d1ea2c357b7f0a90625462f9be && \
+  make CC=gcc
+

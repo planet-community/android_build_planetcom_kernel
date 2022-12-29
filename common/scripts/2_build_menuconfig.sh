@@ -34,6 +34,6 @@ make -C $(pwd) \
 rm -f /out/defconfig
 
 # copy defconfig out
-cp -fv \
+cp -f \
   /usr/src/kernel/out/.config \
   /out/defconfig

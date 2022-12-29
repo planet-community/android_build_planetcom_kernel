@@ -5,7 +5,7 @@ mkdir -p /var/tmp/bootimg
 /opt/unpackbootimg/unpackbootimg -i /opt/common/files/boot.img -o /var/tmp/bootimg
 
 # overwrite kernel
-cp -v \
+cp \
   /usr/src/kernel/out/arch/arm64/boot/Image.gz \
   /var/tmp/bootimg/boot.img-kernel
 

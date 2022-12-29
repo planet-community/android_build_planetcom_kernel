@@ -41,3 +41,5 @@ RUN mkdir /opt/unpackbootimg && \
   git clone https://github.com/osm0sis/mkbootimg.git /opt/unpackbootimg && \
   cd /opt/unpackbootimg && \
   make
+
+COPY common /opt/common

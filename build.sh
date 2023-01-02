@@ -6,7 +6,7 @@ docker run \
   buildkernel_astro \
   /bin/bash -c " \
     /opt/common/scripts/1_fetch_kernel.sh $1 $2 && \
-    /opt/common/scripts/2_build_kernel.sh && \
+    /opt/common/scripts/2_build_kernel.sh $1 && \
     /opt/common/scripts/3_copy_kernel.sh && \
     /opt/common/scripts/4_fix_permissions.sh \
   "

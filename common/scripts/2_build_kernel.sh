@@ -19,7 +19,7 @@ make -C $(pwd) \
   CC=$BUILD_CC \
   CLANG_TRIPLE=$BUILD_CLANG_TRIPLE \
   CROSS_COMPILE=$BUILD_CROSS_COMPILE \
-  k6873v1_64_defconfig
+  ${1:-k6873v1_64_defconfig}
 
 make -j$(nproc --all) -C $(pwd) \
   O=$(pwd)/out \

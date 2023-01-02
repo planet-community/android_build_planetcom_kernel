@@ -20,7 +20,7 @@ make -C $(pwd) \
   CROSS_COMPILE=$BUILD_CROSS_COMPILE \
   REAL_CC=$KERNEL_LLVM_BIN \
   CLANG_TRIPLE=$CLANG_TRIPLE \
-  k6873v1_64_defconfig
+  ${1:-k6873v1_64_defconfig}
 
 make -C $(pwd) \
   O=$(pwd)/out \

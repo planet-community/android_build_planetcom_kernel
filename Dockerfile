@@ -32,9 +32,8 @@ RUN apt update \
     && curl -s "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/pie-release.tar.gz" | tar xzf - -C /opt/ \
     && ln -sf /opt/clang-${CLANG_VERSION} /opt/clang \
     && mkdir /opt/unpackbootimg \
-    && git clone https://github.com/osm0sis/mkbootimg.git /opt/unpackbootimg \
+    && git clone --depth 1 --branch 2022.11.09 https://github.com/osm0sis/mkbootimg.git /opt/unpackbootimg \
     && cd /opt/unpackbootimg \
-    && git checkout 2375c167cbcb10d1ea2c357b7f0a90625462f9be \
     && make CC=gcc
 
 ADD ./common/ /opt/common/

@@ -7,8 +7,12 @@ git clone \
   /usr/src/kernel
 
 # git reset to specific git commit
-if [ $# -eq 3 ]; then
-  pushd /usr/src/kernel
-    git reset --hard "${3}"
-  popd
+if [ ${#} -eq 3 ]; then
+  COMMIT_HASH="${3}"
+  # Check if alphanumeric
+  if [[ "${COMMIT_HASH}" == [[:alnum:]] ]]; then
+      pushd /usr/src/kernel
+      git reset --hard "${COMMIT_HASH}"
+      popd
+  fi
 fi

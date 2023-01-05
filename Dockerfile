@@ -17,8 +17,8 @@ RUN apt update \
           flex \
           git \
           kmod \
-          libncurses5 \
           libncurses-dev \
+          libncurses5 \
           libssl-dev \
           python-is-python3 \
           python2 \ 

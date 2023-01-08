@@ -2,7 +2,7 @@
 
 # unpack boot.img
 mkdir -p /var/tmp/bootimg
-/opt/unpackbootimg/unpackbootimg -i "${1:-/opt/common/files/boot.img}" -o /var/tmp/bootimg
+/opt/unpackbootimg/unpackbootimg -i "${1:-/opt/common/files/android_boot_a_astro.img}" -o /var/tmp/bootimg
 
 # overwrite kernel
 cp \

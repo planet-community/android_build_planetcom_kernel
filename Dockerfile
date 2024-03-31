@@ -37,3 +37,7 @@ RUN apt update \
     && make CC=gcc
 
 ADD ./common/ /opt/common/
+
+ENV PATH="${PATH}:/opt/common/scripts"
+
+ENTRYPOINT ["00_build.sh"]

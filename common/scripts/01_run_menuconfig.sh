@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # change working directory
-cd /usr/src/kernel 
+cd /usr/src/kernel
 
 ARCH=arm64
 PATH=$PATH:/usr/src/kernel/tools
@@ -15,25 +15,25 @@ export CC CLANG_TRIPLE CROSS_COMPILE
 mkdir -p out/
 
 make -C $(pwd) \
-  O=$(pwd)/out \
-  $KERNEL_MAKE_ENV \
-  CROSS_COMPILE=$BUILD_CROSS_COMPILE \
-  REAL_CC=$KERNEL_LLVM_BIN \
-  CLANG_TRIPLE=$CLANG_TRIPLE \
-  ${1:-k6873v1_64_defconfig}
+	O=$(pwd)/out \
+	$KERNEL_MAKE_ENV \
+	CROSS_COMPILE=$BUILD_CROSS_COMPILE \
+	REAL_CC=$KERNEL_LLVM_BIN \
+	CLANG_TRIPLE=$CLANG_TRIPLE \
+	${1:-k6873v1_64}_defconfig}
 
 make -C $(pwd) \
-  O=$(pwd)/out \
-  $KERNEL_MAKE_ENV \
-  CROSS_COMPILE=$BUILD_CROSS_COMPILE \
-  REAL_CC=$KERNEL_LLVM_BIN \
-  CLANG_TRIPLE=$CLANG_TRIPLE \
-  menuconfig
+	O=$(pwd)/out \
+	$KERNEL_MAKE_ENV \
+	CROSS_COMPILE=$BUILD_CROSS_COMPILE \
+	REAL_CC=$KERNEL_LLVM_BIN \
+	CLANG_TRIPLE=$CLANG_TRIPLE \
+	menuconfig
 
 # remove previous defconfig
 rm -f /out/defconfig
 
 # copy defconfig out
 cp -f \
-  /usr/src/kernel/out/.config \
-  /out/defconfig
+	/usr/src/kernel/out/.config \
+	/out/defconfig
